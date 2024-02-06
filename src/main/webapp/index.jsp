@@ -10,22 +10,12 @@
 
 <body>
 <h1><%= "Заказ пиццы" %></h1>
-<h3>Выберите пиццу:</h3>
-<form class="requestForm" method="post" action="${pageContext.request.contextPath}/order">
-    <%List<String> types = (List<String>) request.getAttribute("pizzaTypes");%>
-    <%System.out.println(types);%>
-    <select name="type">
+    <p>
+        <a href="${pageContext.request.contextPath}/pizza.jsp">Заказать пиццу</a>
+    </p>
 
-    </select>
-<%--    <select class="requestInput" name="type">--%>
-<%--         <%for (String type: types) {%>--%>
-<%--        <option><%=type%></option>--%>
-<%--        <%}%>--%>
-<%--    </select>--%>
-    <input type="submit" class="requestButton" value="Оформить">
-</form>
 <br/>
-<script src="test.js"> </script>
+<%--<script src="test.js"> </script>--%>
 
 </body>
 </html>

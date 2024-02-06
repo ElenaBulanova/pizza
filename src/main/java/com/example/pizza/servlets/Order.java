@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet("/order")
 public class Order extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,13 +24,14 @@ public class Order extends HttpServlet {
             throw new RuntimeException(e);
         }
         RequestDispatcher dispatcher =
-                request.getServletContext().getRequestDispatcher("/index.jsp");
+                request.getServletContext().getRequestDispatcher("/pizza.jsp");
         dispatcher.forward(request, response);
     }
     private void completeRequest(HttpServletRequest request) throws SQLException {
         DbDao dao = new DbDao();
         List<String> types = dao.pizzaTypes();
         request.setAttribute("pizzaTypes", types);
+        System.out.println("before button");
         System.out.println(request.getAttribute("pizzaTypes"));
 
 
