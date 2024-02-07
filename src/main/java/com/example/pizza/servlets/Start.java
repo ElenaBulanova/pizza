@@ -27,13 +27,7 @@ public class Start extends HttpServlet {
         dispatcher.forward(request, response);
     }
     private void completeRequest(HttpServletRequest request) throws SQLException {
-//        DbDao dao = new DbDao();
-//        List<String> types = dao.pizzaTypes();
-//        request.setAttribute("pizzaTypes", types);
-//        System.out.println(request.getAttribute("pizzaTypes"));
-//
-//
-//        dao.closeConnection();
+
     }
 
     @Override

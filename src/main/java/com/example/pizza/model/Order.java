@@ -9,27 +9,27 @@ public class Order {
     private Integer id;
     private Integer clientId;
     private Integer pizzaId;
-    private Integer toppingId;
+    private String toppings;
     private Integer amount;
 
-    public Order(Integer id, Integer clientId, Integer pizzaId, Integer toppingId, Integer amount) {
+    public Order(Integer id, Integer clientId, Integer pizzaId, String toppings, Integer amount) {
         this.id = null;
         this.clientId = clientId;
         this.pizzaId = pizzaId;
-        this.toppingId = toppingId;
+        this.toppings = toppings;
         this.amount = amount;
     }
     public Order(ResultSet resultSet) throws SQLException {
         this.id = resultSet.getInt("id");
         this.clientId = resultSet.getInt("client_id");
         this.pizzaId = resultSet.getInt("pizza_id");
-        this.toppingId = resultSet.getInt("topping_id");
+        this.toppings = resultSet.getString("toppings");
         this.amount = resultSet.getInt("amount");
     }
     public Order(HttpServletRequest request) {
         this.clientId = Integer.parseInt(request.getParameter("client_id"));
         this.pizzaId = Integer.parseInt(request.getParameter("pizza_id"));
-        this.toppingId = Integer.parseInt(request.getParameter("topping_id"));
+        this.toppings = request.getParameter("toppings");
         this.amount = Integer.parseInt(request.getParameter("amount"));
     }
 
@@ -57,12 +57,12 @@ public class Order {
         this.pizzaId = pizzaId;
     }
 
-    public Integer getToppingId() {
-        return toppingId;
+    public String getToppings() {
+        return toppings;
     }
 
-    public void setToppingId(Integer toppingId) {
-        this.toppingId = toppingId;
+    public void setToppings(String toppings) {
+        this.toppings = toppings;
     }
 
     public Integer getAmount() {
@@ -79,7 +79,7 @@ public class Order {
                 "id=" + id +
                 ", clientId=" + clientId +
                 ", pizzaId=" + pizzaId +
-                ", toppingId=" + toppingId +
+                ", toppings=" + toppings +
                 ", amount=" + amount +
                 '}';
     }

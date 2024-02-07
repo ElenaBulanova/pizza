@@ -11,7 +11,7 @@
 <body>
 <h1><%= "Заказ пиццы" %></h1>
     <p>
-        <a href="${pageContext.request.contextPath}/pizza.jsp">Заказать пиццу</a>
+        <a href="${pageContext.request.contextPath}/pizza">Заказать пиццу</a>
     </p>
 
 <br/>
